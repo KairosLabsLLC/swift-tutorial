@@ -8,18 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITextFieldDelegate {
+    // MARK: Properties
+    @IBOutlet weak var creditCardNumberTextField: UITextField!
+    @IBOutlet weak var cvvTextField: UITextField!
+    @IBOutlet weak var expiryDateTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Handle the text field’s user input through delegate callbacks.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: Actions
+    
+    //MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the leopard.
+        textField.resignFirstResponder()
+        return true
     }
-
-
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+       // mealNameLabel.text = textField.text
+    }
+    
+    @IBAction func submitField(_ sender: UIButton) {
+    }
 }
 
